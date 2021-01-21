@@ -122,7 +122,7 @@ public class UserController {
             Test test1 = testService.findTestById(test_id);
             test1.setSample(sample);
             test1.setStatus("Pending");
-            testService.creatTest(test1);
+            testService.creatTestxx(test1);
             return "redirect:/agent";
         }
 
@@ -141,7 +141,7 @@ public class UserController {
     public String searchTestBySample(@RequestParam("sample_id") Long sample_id, Model model) {
          if (testService.findTestBySample(sample_id) != null)
             return "redirect:/tester/test/" + sample_id;
-         model.addAttribute("error", "No test found. Enter a valid sample number");
+         model.addAttribute("error", "No test found");
          return "results.jsp";
     }
 

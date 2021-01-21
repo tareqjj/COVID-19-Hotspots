@@ -2,6 +2,7 @@ package com.springsecurity.auth.models;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.Future;
 import javax.validation.constraints.Null;
 import java.util.Date;
 import java.util.List;
@@ -29,6 +30,8 @@ public class Test {
     @OneToMany(mappedBy="test", fetch = FetchType.LAZY)
     private List<Location> locations;
 
+    private Date endDate;
+
     public Test() {
     }
 
@@ -50,6 +53,14 @@ public class Test {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
     }
 
     public Long getSample() {

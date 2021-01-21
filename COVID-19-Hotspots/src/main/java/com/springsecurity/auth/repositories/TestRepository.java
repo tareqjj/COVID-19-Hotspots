@@ -5,6 +5,7 @@ import com.springsecurity.auth.models.User;
 import org.apache.taglibs.standard.extra.spath.Step;
 import org.springframework.data.repository.CrudRepository;
 
+import java.util.Date;
 import java.util.List;
 
 public interface TestRepository extends CrudRepository<Test, Long> {
@@ -13,4 +14,5 @@ public interface TestRepository extends CrudRepository<Test, Long> {
     Test findBySample(Long sample);
     List<Test> findByRecordIdAndStatusIs(Long id, String status);
     List<Test> findByRecordUser(User user);
+    List<Test> findAllByResultIsAndEndDateAfter(String result, Date date);
 }

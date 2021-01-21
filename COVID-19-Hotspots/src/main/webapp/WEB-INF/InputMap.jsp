@@ -63,11 +63,11 @@
     let markers = [];
 
     function initMap() {
-        const haightAshbury = { lat: 37.769, lng: -122.446 };
+        const haightAshbury = { lat: 31.90493919635812, lng: 35.20443782875959  };
         map = new google.maps.Map(document.getElementById("map"), {
             zoom: 12,
             center: haightAshbury,
-            mapTypeId: "terrain",
+            // mapTypeId: "terrain",
         });
         // This event listener will call addMarker() when the map is clicked.
         map.addListener("click", (event) => {

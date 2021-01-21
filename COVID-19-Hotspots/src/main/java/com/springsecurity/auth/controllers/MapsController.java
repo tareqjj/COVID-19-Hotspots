@@ -26,7 +26,7 @@ public class MapsController {
 
     @RequestMapping("heatMap")
     public String heatMap(Model model){
-        List<Location> locations = mapsService.findAllLocations();
+        List<Test> tests = testService.activePoints();
 //        ArrayList<Double[]> arr = new ArrayList<>();
 //        for (Location location: locations) {
 //            Double[] locat = new Double[2];
@@ -35,7 +35,8 @@ public class MapsController {
 //            arr.add(locat);
 //        }
 //        System.out.println(arr);
-        model.addAttribute("arr", locations);
+        model.addAttribute("tests", tests);
+        System.out.println(tests);
         return "Maps.jsp";
     }
 
@@ -51,6 +52,6 @@ public class MapsController {
             Location newLocation = new Location(location[0], location[1]);
             mapsService.createLocations(newLocation, id, test);
         }
-        return "InputMap.jsp";
+        return "redirect:/inputMap";
     }
 }
